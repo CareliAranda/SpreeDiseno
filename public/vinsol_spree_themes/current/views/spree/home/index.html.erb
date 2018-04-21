@@ -1,0 +1,25 @@
+<section class="regular slider">
+  <div>
+    <%= image_tag '11.jpg', class: 'img-responsive' %>
+  </div>
+  <div>
+    <%= image_tag '12.jpg', class: 'img-responsive' %>
+  </div>
+  <div>
+    <%= image_tag '13.jpg', class: 'img-responsive' %>
+  </div>
+</section>
+
+<% @body_id = 'home-page' %>
+<% content_for :sidebar do %>
+  <div data-hook="homepage_sidebar_navigation">
+    <%= render partial: 'spree/shared/taxonomies' %>
+  </div>
+<% end %>
+<div class="text-center common-heading">Compromiso absoluto y verdadero con las mujeres Méxicanas</div>
+<div class="text-center common-subheading">Absoluto compromiso de mejorar la vida de las mujeres mexicanas y sus familias ofreciéndoles productos innovadores que combinan lo más selecto de la naturaleza y la ciencia para brindarles un inigualable plan de carrera y oportunidad de negocio que existe en el mercado mexicano. </div>
+<div data-hook="homepage_products" class="homepage_products">
+  <% cache(cache_key_for_products) do %>
+    <%= render partial: 'spree/shared/products', locals: { products: @products } %>
+  <% end %>
+</div>
